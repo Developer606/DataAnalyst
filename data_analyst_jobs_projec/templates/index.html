@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Salary Prediction App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 50px; }
+        .form-box { max-width: 400px; margin: auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; }
+        h2 { text-align: center; }
+        input, label { display: block; margin: 10px 0; }
+        button { padding: 10px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin-top: 20px; text-align: center; font-size: 1.2em; color: green; }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>💼 Salary Prediction</h2>
+        <form action="/predict" method="post">
+            <label>Company Rating (1.0 - 5.0):</label>
+            <input type="number" step="0.1" name="rating" required>
+
+            <label>Skills:</label>
+            <input type="checkbox" name="python" value="1"> Python
+            <input type="checkbox" name="excel" value="1"> Excel
+            <input type="checkbox" name="sql" value="1"> SQL
+
+            <label>Year Founded:</label>
+            <input type="number" name="founded" required>
+
+            <button type="submit">Predict</button>
+        </form>
+        <div class="result">{{ prediction_text }}</div>
+    </div>
+</body>
+</html>
